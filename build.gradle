@@ -1,0 +1,57 @@
+
+
+buildscript {
+    repositories {
+        //mavenLocal()
+        mavenCentral()
+        gradlePluginPortal()
+
+        maven {
+            url "https://nexus.gluonhq.com/nexus/content/repositories/releases/"
+        }
+    }
+
+    dependencies {
+        classpath "com.gluonhq.client-gradle-plugin:com.gluonhq.client-gradle-plugin.gradle.plugin:0.1.38"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
+        classpath 'org.openjfx:javafx-plugin:0.0.9'
+    }
+}
+
+apply plugin: 'java'
+targetCompatibility = "11"
+sourceCompatibility = "11"
+repositories {
+    //mavenLocal()
+    mavenCentral()
+
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+
+    maven {
+        url "https://sandec.bintray.com/repo"
+    }
+    maven {
+        url 'https://nexus.gluonhq.com/nexus/content/repositories/releases/'
+    }
+}
+apply plugin: 'application'
+apply plugin: 'org.openjfx.javafxplugin'
+apply plugin: 'com.gluonhq.client-gradle-plugin'
+
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
+}
+
+mainClassName = 'com.gluonhq.hello.HelloGluonApp'
+
+dependencies {
+    compile "com.gluonhq.attach:display:4.0.10"
+    compile "com.gluonhq.attach:lifecycle:4.0.10"
+    compile "com.gluonhq.attach:statusbar:4.0.10"
+    compile "com.gluonhq.attach:storage:4.0.10"
+    compile "com.gluonhq.attach:util:4.0.10"
+    compile "com.gluonhq:charm-glisten:6.0.6"
+
+}
+
