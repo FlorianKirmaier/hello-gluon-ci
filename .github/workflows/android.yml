@@ -32,9 +32,21 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: ./gradlew -Pandroid nativeBuild nativePackage
+        run: ./gradlew -Pandroid nativeBuild nativePackage --stacktrace
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
+          
+      - name: cat logfiles
+        if: ${{ failure() }}
+        shell: bash
+        run: |
+          echo "Gluon LogFile:"
+          ls build/ || True
+          ls build/client/ || True
+          ls build/client/aarch64-android/ || True
+          ls build/client/aarch64-android/gvm/ || True
+          ls build/client/aarch64-android/gvm/log || True
+          cat build/client/aarch64-android/gvm/log/* || True
 
       - name: Make staging directory
         run: mkdir staging
