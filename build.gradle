@@ -52,12 +52,11 @@ gluonClient {
 mainClassName = 'com.gluonhq.hello.HelloGluonApp'
 
 dependencies {
-    compile "com.gluonhq.attach:display:4.0.10"
-    compile "com.gluonhq.attach:lifecycle:4.0.10"
-    compile "com.gluonhq.attach:statusbar:4.0.10"
-    compile "com.gluonhq.attach:storage:4.0.10"
-    compile "com.gluonhq.attach:util:4.0.10"
-    compile "com.gluonhq:charm-glisten:6.0.6"
-
+    implementation "com.gluonhq.attach:display:4.0.10"
+    implementation "com.gluonhq.attach:lifecycle:4.0.10"
+    implementation "com.gluonhq.attach:statusbar:4.0.10"
+    implementation "com.gluonhq.attach:storage:4.0.10"
+    implementation "com.gluonhq.attach:util:4.0.10"
+    implementation "com.gluonhq:charm-glisten:6.0.6"
 }
 
