@@ -46,7 +46,11 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
 }
 gluonClient {
-    target = "android"
+    //target = "desktop"
+    attachConfig {
+        version = "4.0.10"
+        services 'display', 'lifecycle', 'statusbar', 'storage'
+    }
 }
 
 mainClassName = 'com.gluonhq.hello.HelloGluonApp'

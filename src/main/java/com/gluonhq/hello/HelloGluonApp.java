@@ -38,6 +38,7 @@ import javafx.geometry.Dimension2D;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -55,8 +56,10 @@ public class HelloGluonApp extends MobileApplication {
             imageView.setFitHeight(200);
             imageView.setPreserveRatio(true);
 
+            PasswordField field = new PasswordField();
+
             Label label = new Label("Hello, Gluon Mobile!");
-            VBox root = new VBox(20, imageView, label);
+            VBox root = new VBox(20, imageView, label, field);
             root.setAlignment(Pos.CENTER);
 
             View view = new View(root) {
