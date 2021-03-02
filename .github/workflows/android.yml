@@ -32,10 +32,10 @@ jobs:
           gluon-license: ${{ secrets.GLUON_LICENSE }}
 
       - name: Gluon Build
-        run: ./gradlew -Pandroid nativeBuild nativePackage --stacktrace
+        run: ./gradlew -PCLIENT_TARGET=android nativeBuild nativePackage --stacktrace
         env:
           GRAALVM_HOME: ${{ env.JAVA_HOME }}
-          
+
       - name: cat logfiles
         if: ${{ failure() }}
         shell: bash

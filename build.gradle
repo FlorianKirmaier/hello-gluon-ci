@@ -46,7 +46,7 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.media' ]
 }
 gluonClient {
-    //target = "desktop"
+    target = CLIENT_TARGET
     attachConfig {
         version = "4.0.10"
         services 'display', 'lifecycle', 'statusbar', 'storage'
